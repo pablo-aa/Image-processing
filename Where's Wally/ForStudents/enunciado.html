@@ -1,0 +1,34 @@
+<html>
+  <body>
+    <h1>Template matching</h1>
+    <h2>Regras:</h2>
+    <ul>
+      <li>Esta prova é individual.</li>
+      <li>A compreensão do enunciado faz parte da avaliação, porém os alunos podem consultar o professor caso tenham alguma dúvida.</li>
+      <li>É permitida a consulta de todo material disponível na página do curso (este Moodle), bem como o uso de trechos de código submetido pelo próprio aluno para a resolução de exercícios das listas anteriores.</li>
+      <li>Somente os computadores do laboratório podem ser utilizados. O uso de dispositivos de comunicação e outros computadores (celulares, tablets, laptops, etc) não é permitido.</li>
+      <li>A prova tem duração de 1h40min.</li>
+    </ul>
+
+    <h2>Enunciado</h2>
+    <p>Escreva um programa que implemente <a href="https://en.wikipedia.org/wiki/Template_matching" target="_blank">template matching</a>. Seu programa deve ter a seguinte sintaxe:</p>
+    <pre><code>./template_match imagem.ppm template.ppm diferenca.pgm quadro.pgm </code></pre>
+    <p>Onde os argumentos são:</p>
+    <ol start="0">
+      <li>./template_match: nome do seu programa executável (pode ser ./a.out se você compilar sem a opção "-o".</li>
+      <li>imagem.ppm: imagem de entrada onde você quer localizar um objeto. Seu programa deve funcionar com imagem colorida (formato PPM ASCII) ou em tons de cinza (formato PGM ASCII).</li>
+      <li>template.ppm: imagem do padrão que você quer localizar na primeira imagem, podendo ser colorida (formato PPM ASCII) ou em tons de cinza (formato PGM ASCII).</li>
+      <li>diferenca.pgm (opcional): imagem em tons de cinza (PGM ASCII) em que o valor de cada pixel eh proporcional ao modulo da diferenca entre o template e a imagem original naquela posição.</li>
+      <li>quadro.pgm (opcional): imagem no mesmo formato que imagem.ppm, porem o valor de todos os pixeis eh reduzido em 128 níveis (ou eh zero), exceto para os pixeis na janela onde o template foi localizado.</li>
+    </ol>
+    <p>Ao final da execução só seu programa, ele deve gerar uma saída que indica a posição onde o template foi localizado e também qual eh a soma das diferenças absolutas entre o template e a imagem original naquela posição. Por exemplo:</p>
+    <pre><code>Template found at row=164, col=827. Difference=130088.000000</code></pre>    
+    <p>Em anexo ha um conjunto de arquivos que deve facilitar a compreensão do problema e sua implementação.</p>
+    <p>Seguem exemplos de execução:</p>
+<pre><code>gcc netpbm.c template_match.c -Wall -pedantic -o template_match
+./template_match unb.ppm B.ppm unb_diff.pgm unb_frame.ppm
+./template_match wheres_wally.pgm wally.pgm wheres_wally_diff.pgm wheres_wally_frame.pgm </code></pre>
+    
+    
+  </body>
+</html>
